@@ -1,0 +1,413 @@
+{
+  "coffees": [
+    {
+      "id": 1,
+      "imageUrl": "./src/assets/Expresso.png",
+      "properties": [
+        "TRADICIONAL"
+      ],
+      "name": "Expresso Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": 990
+    },
+    {
+      "id": 2,
+      "imageUrl": "./src/assets/Americano.png",
+      "properties": [
+        "TRADICIONAL"
+      ],
+      "name": "Expresso Americano",
+      "description": "Expresso diluído, menos intenso que o tradicional",
+      "price": 990
+    },
+    {
+      "id": 3,
+      "imageUrl": "./src/assets/ExpressoCremoso.png",
+      "properties": [
+        "TRADICIONAL"
+      ],
+      "name": "Expresso Cremoso",
+      "description": "Café expresso tradicional com espuma cremosa",
+      "price": 990
+    },
+    {
+      "id": 4,
+      "imageUrl": "./src/assets/CafeGelado.png",
+      "properties": [
+        "TRADICIONAL",
+        "GELADO"
+      ],
+      "name": "Expresso Gelado",
+      "description": "Bebida preparada com café expresso e cubos de gelo",
+      "price": 990
+    },
+    {
+      "id": 5,
+      "imageUrl": "./src/assets/CafeComLeite.png",
+      "properties": [
+        "TRADICIONAL",
+        "COM LEITE"
+      ],
+      "name": "Café Com Leite",
+      "description": "Meio a meio de expresso tradicional com leite vaporizado",
+      "price": 990
+    },
+    {
+      "id": 6,
+      "imageUrl": "./src/assets/Latte.png",
+      "properties": [
+        "TRADICIONAL",
+        "COM LEITE"
+      ],
+      "name": "Latte",
+      "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+      "price": 990
+    },
+    {
+      "id": 7,
+      "imageUrl": "./src/assets/Capuccino.png",
+      "properties": [
+        "TRADICIONAL",
+        "COM LEITE"
+      ],
+      "name": "Capuccino",
+      "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
+      "price": 990
+    },
+    {
+      "id": 8,
+      "imageUrl": "./src/assets/Macchiato.png",
+      "properties": [
+        "TRADICIONAL",
+        "COM LEITE"
+      ],
+      "name": "Macchiato",
+      "description": "Café expresso misturado com um pouco de leite quente e espuma",
+      "price": 990
+    },
+    {
+      "id": 9,
+      "imageUrl": "./src/assets/Mochaccino.png",
+      "properties": [
+        "TRADICIONAL",
+        "COM LEITE"
+      ],
+      "name": "Mochaccino",
+      "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+      "price": 990
+    },
+    {
+      "id": 10,
+      "imageUrl": "./src/assets/ChocolateQuente.png",
+      "properties": [
+        "TRADICIONAL",
+        "COM LEITE"
+      ],
+      "name": "Chocolate Quente",
+      "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+      "price": 990
+    },
+    {
+      "id": 11,
+      "imageUrl": "./src/assets/Cubano.png",
+      "properties": [
+        "ESPECIAL",
+        "ALCOÓLICO",
+        "GELADO"
+      ],
+      "name": "Cubano",
+      "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+      "price": 990
+    },
+    {
+      "id": 12,
+      "imageUrl": "./src/assets/Havaiano.png",
+      "properties": [
+        "ESPECIAL"
+      ],
+      "name": "Havaiano",
+      "description": "Bebida adocicada preparada com café e leite de coco",
+      "price": 990
+    },
+    {
+      "id": 13,
+      "imageUrl": "./src/assets/Arabe.png",
+      "properties": [
+        "ESPECIAL"
+      ],
+      "name": "Árabe",
+      "description": "Bebida preparada com grãos de café árabe e especiarias",
+      "price": 990
+    },
+    {
+      "id": 14,
+      "imageUrl": "./src/assets/Irlandes.png",
+      "properties": [
+        "ESPECIAL"
+      ],
+      "name": "Irlandês",
+      "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+      "price": 990
+    }
+  ],
+  "orders": [
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro",
+        "numero": 12,
+        "bairro": "teste",
+        "cidade": "asdad",
+        "estado": "sp",
+        "complemento": ""
+      },
+      "paymentType": "credito",
+      "cart": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Expresso Cremoso",
+            "imageUrl": "./src/assets/ExpressoCremoso.png",
+            "price": 990,
+            "quantity": 2
+          },
+          {
+            "id": 1,
+            "name": "Expresso Tradicional",
+            "imageUrl": "./src/assets/Expresso.png",
+            "price": 990,
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 1
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro",
+        "numero": 123123,
+        "bairro": "asd",
+        "cidade": "asdad",
+        "estado": "sp",
+        "complemento": "asdad"
+      },
+      "paymentType": "debito",
+      "cart": {
+        "items": [
+          {
+            "id": 4,
+            "name": "Expresso Gelado",
+            "imageUrl": "./src/assets/CafeGelado.png",
+            "price": 990,
+            "quantity": 2
+          },
+          {
+            "id": 2,
+            "name": "Expresso Americano",
+            "imageUrl": "./src/assets/Americano.png",
+            "price": 990,
+            "quantity": 2
+          },
+          {
+            "id": 1,
+            "name": "Expresso Tradicional",
+            "imageUrl": "./src/assets/Expresso.png",
+            "price": 990,
+            "quantity": 2
+          }
+        ]
+      },
+      "id": 2
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro",
+        "numero": 12,
+        "bairro": "teste",
+        "cidade": "Ibaté",
+        "estado": "sp",
+        "complemento": "teste"
+      },
+      "paymentType": "debito",
+      "cart": {
+        "items": [
+          {
+            "id": 4,
+            "name": "Expresso Gelado",
+            "imageUrl": "./src/assets/CafeGelado.png",
+            "price": 990,
+            "quantity": 4
+          },
+          {
+            "id": 3,
+            "name": "Expresso Cremoso",
+            "imageUrl": "./src/assets/ExpressoCremoso.png",
+            "price": 990,
+            "quantity": 5
+          }
+        ]
+      },
+      "id": 3
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro Moreira De Barros",
+        "numero": 238,
+        "bairro": "Jardim Mariana",
+        "cidade": "Ibaté",
+        "estado": "SP",
+        "complemento": ""
+      },
+      "paymentType": "dinheiro",
+      "cart": {
+        "items": [
+          {
+            "id": 4,
+            "name": "Expresso Gelado",
+            "imageUrl": "./src/assets/CafeGelado.png",
+            "price": 990,
+            "quantity": 3
+          }
+        ]
+      },
+      "id": 4
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro Moreira De Barros",
+        "numero": 123,
+        "bairro": "Jardim Mariana",
+        "cidade": "Ibaté",
+        "estado": "SP",
+        "complemento": ""
+      },
+      "paymentType": "debito",
+      "cart": {
+        "items": [
+          {
+            "id": 4,
+            "name": "Expresso Gelado",
+            "imageUrl": "./src/assets/CafeGelado.png",
+            "price": 990,
+            "quantity": 2
+          }
+        ]
+      },
+      "id": 5
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro Moreira De Barros",
+        "numero": 238,
+        "bairro": "Jardim Mariana",
+        "cidade": "Ibaté",
+        "estado": "SP",
+        "complemento": ""
+      },
+      "paymentType": "dinheiro",
+      "cart": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Expresso Cremoso",
+            "imageUrl": "./src/assets/ExpressoCremoso.png",
+            "price": 990,
+            "quantity": 2
+          },
+          {
+            "id": 1,
+            "name": "Expresso Tradicional",
+            "imageUrl": "./src/assets/Expresso.png",
+            "price": 990,
+            "quantity": 2
+          }
+        ]
+      },
+      "id": 6
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro Moreira De Barros",
+        "numero": 238,
+        "bairro": "Jardim Mariana",
+        "cidade": "Ibaté",
+        "estado": "SP",
+        "complemento": ""
+      },
+      "paymentType": "dinheiro",
+      "cart": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Expresso Cremoso",
+            "imageUrl": "./src/assets/ExpressoCremoso.png",
+            "price": 990,
+            "quantity": 2
+          },
+          {
+            "id": 5,
+            "name": "Café Com Leite",
+            "imageUrl": "./src/assets/CafeComLeite.png",
+            "price": 990,
+            "quantity": 1
+          }
+        ]
+      },
+      "id": 7
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro",
+        "numero": 12,
+        "bairro": "Jardim Mariana",
+        "cidade": "Ibaté",
+        "estado": "SP",
+        "complemento": ""
+      },
+      "paymentType": "debito",
+      "cart": {
+        "items": [
+          {
+            "id": 3,
+            "name": "Expresso Cremoso",
+            "imageUrl": "./src/assets/ExpressoCremoso.png",
+            "price": 990,
+            "quantity": 2
+          }
+        ]
+      },
+      "id": 8
+    },
+    {
+      "address": {
+        "cep": "14815-000",
+        "rua": "Avenida Conselheiro Moreira De Barros",
+        "numero": 12312,
+        "bairro": "Jardim Mariana",
+        "cidade": "Ibaté",
+        "estado": "SP",
+        "complemento": ""
+      },
+      "paymentType": "credito",
+      "cart": {
+        "items": [
+          {
+            "id": 7,
+            "name": "Capuccino",
+            "imageUrl": "./src/assets/Capuccino.png",
+            "price": 990,
+            "quantity": 3
+          }
+        ]
+      },
+      "id": 9
+    }
+  ]
+}
