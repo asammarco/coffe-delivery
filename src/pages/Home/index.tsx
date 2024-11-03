@@ -26,7 +26,7 @@ export function Home() {
                 key={coffee.id}
                 coffee={coffee}
                 quantity={
-                  cart.items?.find((item) => item.id === coffee.id)?.quantity ||
+                  cart?.items?.find((item) => item.id === coffee.id)?.quantity ||
                   0
                 }
               />

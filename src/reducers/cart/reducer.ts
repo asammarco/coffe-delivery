@@ -17,7 +17,7 @@ export function CartReducer(state: Cart, action: Actions) {
   switch (action.type) {
     case ActionTypes.UPDATE_CART:
       return produce(state, (draft) => {
-        if (state.items?.length > 0) {
+        if (state?.items?.length > 0) {
           const filteredItems = state.items.filter(
             (item) => item.id !== action.payload.item.id,
           )
@@ -28,7 +28,7 @@ export function CartReducer(state: Cart, action: Actions) {
             draft.items = [...filteredItems, action.payload.item]
           }
         } else {
-          draft.items.push(action.payload.item)
+          draft?.items.push(action.payload.item)
         }
       })
     case ActionTypes.DELETE_CART:

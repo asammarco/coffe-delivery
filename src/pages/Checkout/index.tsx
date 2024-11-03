@@ -46,7 +46,7 @@ const newOrderValidationSchema = zod.object({
 export type Order = zod.infer<typeof newOrderValidationSchema>
 
 export function Checkout() {
-  const { checkout } = useContextSelector(OrderContext, (context) => {
+  const { checkout, address } = useContextSelector(OrderContext, (context) => {
     return context
   })
 
@@ -58,12 +58,22 @@ export function Checkout() {
     reset,
   } = useForm<Order>({
     resolver: zodResolver(newOrderValidationSchema),
-    defaultValues: {},
+    defaultValues: {
+      cep: address.cep,
+      rua: address.rua,
+      numero: address.numero,
+      complemento: address.complemento,
+      bairro: address.bairro,
+      cidade: address.cidade,
+      estado: address.estado
+    },
   })
 
   function handleNewOrder(data: Order) {
     checkout(data)
-    reset()
+    reset({
+      paymentType: ''
+    })
   }
 
   return (

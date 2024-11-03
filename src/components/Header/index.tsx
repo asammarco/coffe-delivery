@@ -17,12 +17,14 @@ import { useEffect, useState } from 'react'
 export function Header() {
   const [quantityItems, setQuantityItems] = useState(0)
 
-  const cart = useContextSelector(OrderContext, (context) => {
-    return context.cart
+  const {cart, address} = useContextSelector(OrderContext, (context) => {
+    return context
   })
 
   useEffect(() => {
-    setQuantityItems(cart.items?.length)
+
+    setQuantityItems(cart?.items?.length)
+    
   }, [cart])
 
   return (
@@ -35,7 +37,8 @@ export function Header() {
           <NavLink to="checkout" title="shopping cart">
             <LocalizationInfo>
               <MapPin weight="fill" size={22} />
-              <span>Localização</span>
+              {address.cidade && <span>{address.cidade}, {address.estado}</span>}  
+              {!address.cidade && <span>Localização</span>}  
             </LocalizationInfo>
           </NavLink>
           <NavLink to="checkout" title="shopping cart">

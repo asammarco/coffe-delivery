@@ -34,17 +34,19 @@ interface CreateOrderData {
   complemento?: string
 }
 
-interface Order {
-  id: number
-  address: {
+interface Address {
     cep: string
     rua: string
     numero: number
     bairro: string
     cidade: string
     estado: string
-    complemento: string
-  }
+    complemento?: string
+}
+
+interface Order {
+  id: number
+  address: Address
   paymentType: string
   cart: Cart
 }
@@ -52,6 +54,7 @@ interface Order {
 interface OrderType {
   cart: Cart
   orders: Order[]
+  address: Address
   updateCart: (item: Item) => void
   checkout: (data: CreateOrderData) => void
 }
@@ -60,9 +63,27 @@ export const OrderContext = createContext({} as OrderType)
 
 export function OrderProvider({ children }: OrderProviderProps) {
   const navigate = useNavigate()
-  const [cartState, dispatchCart] = useReducer(CartReducer, { items: [] })
+  const [cartState, dispatchCart] = useReducer(
+    CartReducer, 
+    { items: [] },
+    (cartState) => {
+      const storedStateAsJSON = localStorage.getItem('@coffee-delivery:cart-state-1.0.0');
+
+      if(storedStateAsJSON){
+        return JSON.parse(storedStateAsJSON)
+      }
+      return cartState
+    })
   const [orderState, dispatchOrder] = useReducer(OrderReducer, { id: 0 })
   const [orders, setOrders] = useState<Order[]>([])
+  const [address, setAddress] = useState<Address>(() => {
+    const storedStateAsJSON = localStorage.getItem('@coffee-delivery:address-state-1.0.0')
+      if(storedStateAsJSON){
+       return JSON.parse(storedStateAsJSON)
+      } else {
+        return {} as Address
+      }
+  })
 
   function updateCart(item: Item) {
     dispatchCart(updateCartAction(item))
@@ -76,18 +97,21 @@ export function OrderProvider({ children }: OrderProviderProps) {
 
   const createOrder = useCallback(
     async (data: CreateOrderData) => {
+      const address = {
+        cep: data.cep,
+        rua: data.rua,
+        numero: data.numero,
+        bairro: data.bairro,
+        cidade: data.cidade,
+        estado: data.estado,
+        complemento: data.complemento,
+      }
+      setAddress(address)
+  
       try {
         if (cart.items.length > 0) {
           const response = await api.post('orders', {
-            address: {
-              cep: data.cep,
-              rua: data.rua,
-              numero: data.numero,
-              bairro: data.bairro,
-              cidade: data.cidade,
-              estado: data.estado,
-              complemento: data.complemento,
-            },
+            address,
             paymentType: data.paymentType,
             cart: cart,
           })
@@ -101,6 +125,7 @@ export function OrderProvider({ children }: OrderProviderProps) {
   )
 
   function checkout(data: CreateOrderData) {
+    
     createOrder(data)
       .then((response) => {
         dispatchOrder(checkoutAction({ id: Number(response) }, navigate))
@@ -121,11 +146,23 @@ export function OrderProvider({ children }: OrderProviderProps) {
   }, [order])
 
   useEffect(() => {
+    const stateJson = JSON.stringify(cartState)
+
+    localStorage.setItem('@coffee-delivery:cart-state-1.0.0', stateJson)
+
+  }, [cartState])
+
+  useEffect(() => {
+      const stateJson = JSON.stringify(address)
+      localStorage.setItem('@coffee-delivery:address-state-1.0.0', stateJson)
+  }, [address])
+
+  useEffect(() => {
     fetchOrders()
   }, [fetchOrders])
 
   return (
-    <OrderContext.Provider value={{ cart, updateCart, checkout, orders }}>
+    <OrderContext.Provider value={{ cart, updateCart, checkout, orders, address }}>
       {children}
     </OrderContext.Provider>
   )
